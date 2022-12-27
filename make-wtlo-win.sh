@@ -6,7 +6,7 @@ PHP_VER=php-8.2.0-nts-Win32-vs16-x64
 WEBTLO_VER=2.9.9-alpha4
 SCRIPT_VER=0.2
 
-rm -r webtlo-win
+rm -rf webtlo-win
 mkdir -p webtlo-win/php
 
 # Nginx: https://nginx.org/en/download.html
