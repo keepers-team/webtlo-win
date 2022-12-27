@@ -2,7 +2,7 @@ name: Web-TLO Windows Builder
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   wtlo-win:
