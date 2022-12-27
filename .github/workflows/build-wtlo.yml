@@ -1,0 +1,16 @@
+name: Web-TLO Windows Builder
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  wtlo-win:
+    name: wTLO win build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - run: ./make-wtlo-win.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          path: dist/*.zip
