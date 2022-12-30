@@ -1,8 +1,8 @@
 name: Web-TLO Windows Builder
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*.*"
 
 jobs:
   wtlo-win:
@@ -11,6 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: ./make-wtlo-win.sh
-      - uses: actions/upload-artifact@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
           path: dist/*.zip
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/*.zip
+          prerelease: true
