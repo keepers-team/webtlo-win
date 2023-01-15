@@ -1,14 +1,7 @@
 # Simple Web-TLO bundle for Windows
 
-# Подготовленная сборка Web-TLO для Windows
+[![Build](https://github.com/keepers-team/windows/actions/workflows/build-wtlo.yml/badge.svg)](https://github.com/keepers-team/windows/actions/workflows/build-wtlo.yml)
 
-- собирается на базе Nginx + PHP-FPM
-- использует порты 39080 (nginx) и 39081 (php-fpm)
-- не поддерживается работа с rtorrent из-за отсутствующего xmlrpc в php8
+## Installation
 
-## Использование
-
-- Скачать архив из раздела Releases и распаковать
-- для использования web-интерфейса запустить web-сервер, выполнив Start.bat. Интерефейс доступен по адресу http://localhost:39080/
-- Для остановки web-сервера выполнить Stop.bat
-- Для работы скриптов cron-update, cron-reports и cron-control не требуется запущенный web-сервер. В будущем планируется добавить скрипт для легкого добавления заданий в планировщик Windows.
+See instructions [on a wiki](https://webtlo.keepers.tech/setup/windows/).
