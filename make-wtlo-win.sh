@@ -155,19 +155,33 @@ nginx.exe -s stop
 taskkill /im php-cgi.exe
 EOF
 
-cat <<'EOF' > webtlo-win/cron-control.bat
+cat <<'EOF' > webtlo-win/manual-control.bat
 cd php
 php.exe ..\nginx\wtlo\cron\control.php
 EOF
 
-cat <<'EOF' > webtlo-win/cron-reports.bat
+cat <<'EOF' > webtlo-win/manual-reports.bat
 cd php
 php.exe ..\nginx\wtlo\cron\reports.php
 EOF
 
-cat <<'EOF' > webtlo-win/cron-update.bat
+cat <<'EOF' > webtlo-win/manual-update.bat
 cd php
 php.exe ..\nginx\wtlo\cron\update.php
+EOF
+
+cat <<'EOF' > webtlo-win/shedule-install.bat
+SCHTASKS /CREATE /SC HOURLY /TN "WebTLO\Update" /TR "%cd%\php\RunHiddenConsole.exe %cd%\php\php.exe %cd%\nginx\wtlo\cron\update.php" /ST 00:15
+SCHTASKS /CREATE /SC DAILY /TN "WebTLO\Keepers" /TR "%cd%\php\RunHiddenConsole.exe %cd%\php\php.exe %cd%\nginx\wtlo\cron\keepers.php" /ST 05:00
+SCHTASKS /CREATE /SC DAILY /TN "WebTLO\Reports" /TR "%cd%\php\RunHiddenConsole.exe %cd%\php\php.exe %cd%\nginx\wtlo\cron\reports.php" /ST 06:00
+pause
+EOF
+
+cat <<'EOF' > webtlo-win/shedule-delete.bat
+SCHTASKS /DELETE /TN "WebTLO\Update" /F
+SCHTASKS /DELETE /TN "WebTLO\Keepers" /F
+SCHTASKS /DELETE /TN "WebTLO\Reports" /F
+pause
 EOF
 
 cat <<EOF > webtlo-win/ReadMe.html
