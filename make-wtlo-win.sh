@@ -2,9 +2,9 @@
 set -e
 
 NGINX_VER=1.22.1
-PHP_VER=php-8.2.1-nts-Win32-vs16-x64
+PHP_VER=php-8.2.6-nts-Win32-vs16-x64
 WEBTLO_VER=2.9.9-alpha8
-SCRIPT_VER=0.9
+SCRIPT_VER=0.10
 
 rm -rf webtlo-win
 mkdir -p webtlo-win/php
