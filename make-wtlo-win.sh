@@ -2,8 +2,8 @@
 set -e
 
 NGINX_VER=1.24.0
-PHP_VER=php-8.2.8-nts-Win32-vs16-x64
-WEBTLO_VER=2.4.3
+PHP_VER=php-8.2.10-nts-Win32-vs16-x64
+WEBTLO_VER=2.4.4
 SCRIPT_VER=0.10
 
 rm -rf webtlo-win
